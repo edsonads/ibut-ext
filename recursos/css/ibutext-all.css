@@ -1,0 +1,17 @@
+/*
+*ibut Framework CSS
+*/
+
+@import url('rms-forms.css');
+
+/* -----------------------------------------
+ * LAYOULT LÍQUIDO 2 COLUNAS
+ *------------------------------------------*/
+*{font-family: Arial, Helvetica, sans-serif;margin: 0;padding: 0;}
+body{min-width: 800px;}
+#pagina #topo{}
+#pagina #nav{}
+#pagina #menu{float: left;margin-top: 0px;width: 180px;}
+#pagina #conteudo{margin-left: 202px;}
+#pagina #rodape{clear:left;}
+#topo, #nav, #menu, #conteudo, #rodape{border: dotted 1px black;margin: 5px;padding: 5px;}

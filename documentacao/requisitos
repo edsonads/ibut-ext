@@ -1,0 +1,37 @@
+= 1. REQUISITOS FUNCIONAIS =
+
+ * '''GERAR HTML A PARTIR DO PHP:'''
+  * '''Autor:''' Mardone Dias.
+  * '''Prioridade:''' Essencial.
+  * '''Descrição:''' A biblioteca deverá possibilitar o desenvolvimento de uma página sem haver necessidade do uso direto do Html.
+
+ * '''TEMPLATE:'''
+  * '''Autor:''' Mardone Dias.
+  * '''Prioridade:''' Essencial.
+  * '''Descrição:''' A biblioteca deverá possibilitar a criação de templates dinâmicos para sites sem utilizar a linguagem de marcação Html.
+
+ * '''WIDGET:'''
+  * '''Autor:''' Mardone Dias.
+  * '''Prioridade:''' Essencial.
+  * '''Descrição:''' Deverá possibilitar a criação de widgets tornando possível a criação de componente.
+
+
+[[BR]]
+[[BR]]
+
+= 2. REQUISITOS NÃO FUNCIONAIS =
+
+ * '''WEB STANDARD (PADRÕES WEB):'''
+  * '''Autor:''' Mardone Dias.
+  * '''Prioridade:''' Essencial.
+  * '''Descrição:''' A biblioteca deverá seguir rigorosamente os padrões web estabelecidos pelo consórcio W3C.
+
+ * LINGUAGEM SERVER-SIDE:
+  * Autor:''' Mardone Dias.
+  * Prioridade: Essencial.
+  * Descrição: Toda biblioteca deverá ser escrita utilizando-se da liguagem PHP.
+
+ * PARADIGMA DE PROGRAMAçãO:
+  * Autor: Mardone Dias.
+  * Prioridade: Essencial.
+  * Descrição: O paradigma utilizando dever se o paradigma de Orientação a Objetos.

@@ -1,0 +1,70 @@
+= CHANGELOG = 
+
+== 1.0.0 ==
+13-05-2011
+Mardone Dias
+---------------------------------------
+ * Implementação da classe base que possibilitará a integração da biblioteca.
+ * Implementação das classes bases da biblioteca: Element, Tag.
+ * Implementação das classes de manipulação do html: Div, Hiperlink, Lista.
+ * Implementação da classe Template.
+
+
+== 1.1.1 ==
+14-05-2011
+Mardone Dias
+---------------------------------------
+ * Alteração da classe Elemento: adicionado o Método {{{__get()}}}. Ver documentação da API.
+ * Implementação de classe Input: Herda da classe base tag e tem o funcionamento semelhante a tag Html <input>.
+
+
+== 1.1.2 ==
+15-05-2011
+Mardone Dias
+----------------------------------------
+ * Tornei o href opcional para possibilitar o uso de links internos <a name="">.
+ * Removi a constante JANELA_ATUAL="_self". Detectei que não havia necessidade desse atributo pois por padrão o link é aberto no _self. Apenas é necessário informar se o link será aberto em uma nova janela.
+ * Exclusão de arquivos temporários (Antiga api).
+ * Documentação das classes  core(Element, Tag), tags(Div, Hiperlink, Listas).
+
+
+== 1.1.3 ==
+21-05-2011
+Mardone Dias
+----------------------------------------
+ * Atualizado classe Element. Fechar tag mesmo que não tenha conteúdo.
+ * Atualizado classe Template. Implementação do método addFavIcon().
+
+
+== 1.1.4 ==
+25-05-2011
+Mardone Dias
+.----------------------------------------
+ * Alterado todas as classe da biblioteca. O prefixo "EXT_" foi a dicionado às classes, com o objetivo de facilitar aidentificação das mesmas dentro do projeto.
+ * Alterado classe base.Tag. Adicionei o método addEstilos($estilos). Através desse método será passado um mapa de valores, para tornar mais flexivel a passagem de estilos. 
+ * Alterado classe EXT_Template para EXT_BaseTemplate.
+ * Adicionado classe EXT_TemplateSimples. Modelo de template pré-fabricado. 
+
+
+== 1.2.5 ==
+30-05-2011
+Mardone Dias
+.----------------------------------------
+ * Adicionado classe EXT_Tabela, EXT_Paragrafo e EXT_Imagem. EXT_Tabela: classe que gera a tag table, tr e td. As classes EXT_Paragrafo e EXT_Imagem ainda não estão finalizadas.
+ * Alterado classe EXT_Element. Foi adicinado o atributo fecha : boolean, que irá definir se a tag única será finalizada "<tag/>" ou não "<tag>". Foi alterados também a ssinatura do método isUnico para eUnico e adicionado mais um parâmetro $fecha. 
+ * Testado validação do Html 4.01 strict. Até esse ponto a biblioteca está seguindo os padrões web (Html 4.01).
+ * Removido classe NavBar do módulo IbutTemplate. Criei uma classe gerérica para substituir a mesma.
+ * Pequenas alterações em diversas classes.
+
+
+== 1.2.6 ==
+04-06-2011
+Mardone Dias
+.----------------------------------------
+ * Alerado nomenclatura das classes. A classe passa a ter o prefixo EXT_Nomedopacote.
+ * Adicionado classes EXT_Tag_Script, EXT_Tag_Style.
+ * Alterado classe EXT_Tag_Hiperlink. O Html 4.01 restrict, não aceita o atributo target, retirei esse atributo mas adicionei uma alternativa utilizando jQuery.
+
+
+
+
