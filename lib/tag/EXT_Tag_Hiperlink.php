@@ -21,17 +21,17 @@ class EXT_Tag_Hiperlink extends EXT_Base_Tag {
 
     private $endereco;
 
-    public function __construct($href=null, $texto=null, $alvo=false) {
+    public function __construct($href=null, $texto=null, $novaJanela=false) {
         parent::__construct('A');
-        $this->endereco = $href;
+        $this->endereco = EXT_Utils::retornaUrl($href);
         $this->add($texto);
 
-        if ($alvo) {
-            $this->setClasse('externo');
+        if ($novaJanela) {
+            $this->setClasse('novaJanela');
             
             //Abrir página em nova janela.
             EXT_Tag_Script::addScript("
-                    $('.externo').click(function() {
+                    $('.novaJanela').click(function() {
                         window.open(this.href);
                         return false;
                     });"

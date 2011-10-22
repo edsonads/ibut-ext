@@ -1,16 +1,20 @@
 <?php
+define('BASE_URL', 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']));
 
 include_once 'IbutExt.php';
-define('BASE_URL', 'http://localhost/ibutfw');
+IbutExt::setExtBaseUrl(BASE_URL);
+
 
 $div=new EXT_Tag_Div();
-$div->add("Conteúdo da div");
-$div->addEstilo("background-color", "green");
-$div->addEstilo("width", "200px");
-$div->addEstilo("height", "200px");
-$div->show();
 
+$bar=new EXT_Widget_LinkBar();
+$bar->addLink("index.php", 'Página Index');
+$bar->addLink("http://www.google.com.br", 'Página Index',true);
 
+$ts=new EXT_Template_Simples();
+$ts->add("Links");
+$ts->add($bar);
+$ts->show();
 
 ?>
 

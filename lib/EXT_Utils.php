@@ -2,19 +2,18 @@
 
 class EXT_Utils {
 
-    private static function validaTipo($valor) {
-        if (is_string($valor) && $valor != 'true' && $valor != 'false') {
-            return (string) "'{$valor}'";
-        }
+    public static function retornaUrl($url) {
+        $urlCheck='';
 
-        if (is_bool($valor)) {
-            return $valor ? 'true' : 'false';
+        if(substr($url, 0, 4)!='http'){
+            $urlCheck=IbutExt::getExtBaseUrl() . $url;
+        }else{
+            $urlCheck=$url;
         }
-
-        if (is_int($valor)) {
-            return (int) $valor;
-        }
+        return $urlCheck;
     }
+
+
 
 }
 

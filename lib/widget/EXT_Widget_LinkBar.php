@@ -1,16 +1,23 @@
 <?php
 
-class EXT_Widget_LinkBar extends EXT_Tag_Lista {
-    
+class EXT_Widget_LinkBar{
+
+    private $lista;
+    private $baseUrl;
+
     public function __construct() {
-        parent::__construct(EXT_Tag_Lista::LISTA_NAO_ORDENADA);
+        $this->lista=new EXT_Tag_Lista('UL');
     }
-    
-    public function addLink($endereco, $texto, $alvo=false){
-        $link=new EXT_Tag_Hiperlink($endereco, $texto, $alvo);
-        $this->addItem($link);
+
+    public function addLink($endereco, $texto, $novaJanela=false){
+        $link=new EXT_Tag_Hiperlink($endereco, $texto, $novaJanela);
+        $this->lista->addItem($link);
     }
    
+    public function show(){
+        $this->lista->show();
+    }
+
 }
 
 ?>

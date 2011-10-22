@@ -4,7 +4,6 @@
  * Importar todas as classes da biblioteca que disponibilizam serviços.
  */
 IbutExt::importar('EXT_Utils');
-
 /* BASE */
 IbutExt::importar('base.EXT_Base_ElementCss');
 IbutExt::importar('base.EXT_Base_Tag');
@@ -30,7 +29,7 @@ IbutExt::importar('tag.EXT_Tag_Tabela');
 /* CSS */
 IbutExt::importar('css.EXT_Css_Regra');
 
-/*Layout*/
+/* Layout */
 IbutExt::importar('layout.EXT_Layout_FormHorizontal');
 
 
@@ -44,7 +43,6 @@ IbutExt::importar('template.EXT_Template_Admin');
 /* WIDGET */
 IbutExt::importar('widget.EXT_Widget_LinkBar');
 
-
 /**
  * Essa classe é responsável pelo carregamento dos objetos da biblioteca.
  * @author Mardone Dias de Oliveira
@@ -52,6 +50,10 @@ IbutExt::importar('widget.EXT_Widget_LinkBar');
  * @package ibutext
  */
 class IbutExt {
+
+    private static $ExtBaseUrl;
+    private static $ExtBaseImg;
+    private static $ExtBaseCss;
 
     /**
      * Usado para incluir uma classe permitindo acesso a seus métodos. 
@@ -70,12 +72,27 @@ class IbutExt {
                     $caminho.= $parts[$i] . '.php';
                 }
             }
-        }else{
+        } else {
             $caminho .= $classe . '.php';
         }
         include_once $caminho;
     }
 
-}
+    public static function setExtBaseUrl($baseUrl) {
+            self::$ExtBaseUrl = $baseUrl . '/';
+    }
 
+    public static function getExtBaseUrl() {
+        return self::$ExtBaseUrl;
+    }
+
+    public static function getExtBaseImg() {
+        return self::$ExtBaseUrl . 'lib/ibut-ext/recursos/img/';
+    }
+
+    public static function getExtBaseCss() {
+        return self::$ExtBaseUrl . 'lib/ibut-ext/recursos/css/';
+    }
+
+}
 ?>

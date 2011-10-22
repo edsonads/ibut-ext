@@ -5,17 +5,12 @@ abstract class EXT_Template_Base {
     private $html;
     private $head;
     private $body;
-    private $caminhoBase;
 
     public function __construct() {
         echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">';
         $this->html = new EXT_Base_Tag('HTML');
         $this->head = new EXT_Base_Tag('HEAD');
         $this->body = new EXT_Base_Tag('BODY');
-    }
-
-    protected function setCaminhoBase($caminho) {
-        $this->caminhoBase = $caminho . '/';
     }
 
     protected function setCodificacao($codificacao) {
@@ -63,12 +58,12 @@ abstract class EXT_Template_Base {
      * @method addFolhaDeEstilo()
      * @param $href 
      */
-    protected function addCss($endereco, $inHead=true) {
+    protected function addCss($url, $inHead=true) {
 
         $css = new EXT_Base_Tag("LINK");
         $css->type = 'text/css';
         $css->rel = 'stylesheet';
-        $css->href = $this->caminhoBase . $endereco;
+        $css->href = EXT_Utils::retornaUrl($url);
         $css->eUnica(true, false);
 
         if ($inHead) {
@@ -78,19 +73,19 @@ abstract class EXT_Template_Base {
         }
     }
 
-    protected function addFavIcon($endereco) {
+    protected function addFavIcon($url) {
         $favicon = new EXT_Base_Tag("LINK");
         $favicon->type = 'image/x-icon';
         $favicon->rel = 'shortcut icon';
-        $favicon->href = $this->caminhoBase . $endereco;
+        $favicon->href = EXT_Utils::retornaUrl($url);
         $favicon->eUnica(true, false);
         $this->head->add($favicon);
     }
 
-    protected function addScript($endereco, $inHead=true) {
+    protected function addScript($url, $inHead=true) {
         $script = new EXT_Base_Tag("SCRIPT");
         $script->type = 'text/javascript';
-        $script->src = $this->caminhoBase . $endereco;
+        $script->src = EXT_Utils::retornaUrl($url);
 
         if ($inHead) {
             $this->head->add($script);
