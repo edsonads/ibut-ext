@@ -1,4 +1,25 @@
 <?php
+/*
+ * ibut-ext
+ * https://github.com/mardonedias/ibut-ext
+ * Copyright 2011 Mardone Dias
+ *
+ * Este arquivo é parte da biblioteca ibut-ext
+ *
+ * ibut-ext é um software livre; você pode redistribui-lo e/ou
+ * modifica-lo dentro dos termos da Licença Pública Geral GNU como
+ * publicada pela Fundação do Software Livre (FSF); na versão 3 da
+ * Licença, ou (na sua opnião) qualquer versão.
+ *
+ * Esta biblioteca é distribuida na esperança que possa ser  util,
+ * mas SEM NENHUMA GARANTIA; sem uma garantia implicita de ADEQUAÇÂO a qualquer
+ * MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a
+ * Licença Pública Geral GNU para maiores detalhes.
+ *
+ * Você deve ter recebido uma cópia da Licença Pública Geral GNU
+ * junto com este programa, se não, acesse http://www.gnu.org/copyleft/gpl.txt
+ */
+
 
 /**
  * Inclui a classe abstrata Tag a página.
@@ -19,11 +40,11 @@ class EXT_Tag_Hiperlink extends EXT_Base_Tag {
      */
     const NOVA_JANELA=true;
 
-    private $endereco;
+    private $url;
 
     public function __construct($href=null, $texto=null, $novaJanela=false) {
         parent::__construct('A');
-        $this->endereco = EXT_Utils::retornaUrl($href);
+        $this->url = EXT_Utils::retornaUrl($href);
         $this->add($texto);
 
         if ($novaJanela) {
@@ -45,7 +66,7 @@ class EXT_Tag_Hiperlink extends EXT_Base_Tag {
      * @param $endereco - caminho para onde o link ou hiperlink aponta.
      */
     public function setEndereco($endereco) {
-        $this->endereco = $endereco;
+        $this->url = $endereco;
     }
 
     /**
@@ -63,8 +84,8 @@ class EXT_Tag_Hiperlink extends EXT_Base_Tag {
      * @method show()
      */
     public function show() {
-        if ($this->endereco != null) {
-            $this->href = $this->endereco;
+        if ($this->url != null) {
+            $this->setAtributo('href',$this->url);
         }
 
         parent::show();

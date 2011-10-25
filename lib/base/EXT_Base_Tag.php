@@ -1,4 +1,24 @@
 <?php
+/*
+ * ibut-ext
+ * https://github.com/mardonedias/ibut-ext
+ * Copyright 2011 Mardone Dias
+ *
+ * Este arquivo é parte da biblioteca ibut-ext
+ *
+ * ibut-ext é um software livre; você pode redistribui-lo e/ou
+ * modifica-lo dentro dos termos da Licença Pública Geral GNU como
+ * publicada pela Fundação do Software Livre (FSF); na versão 3 da
+ * Licença, ou (na sua opnião) qualquer versão.
+ *
+ * Esta biblioteca é distribuida na esperança que possa ser  util,
+ * mas SEM NENHUMA GARANTIA; sem uma garantia implicita de ADEQUAÇÂO a qualquer
+ * MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a
+ * Licença Pública Geral GNU para maiores detalhes.
+ *
+ * Você deve ter recebido uma cópia da Licença Pública Geral GNU
+ * junto com este programa, se não, acesse http://www.gnu.org/copyleft/gpl.txt
+ */
 
 
 /**
@@ -30,7 +50,7 @@ class EXT_Base_Tag extends EXT_Base_Element {
      * @param string $id - Identificador da tag
      */
     public function setId($id) {
-        $this->id = $id;
+        $this->setAtributo('id',$id);
         return $this;
     }
 
@@ -39,7 +59,7 @@ class EXT_Base_Tag extends EXT_Base_Element {
      * @return string 
      */
     public function getId() {
-        return $this->id;
+        return $this->getAtributo('id');
     }
 
     /**
@@ -47,7 +67,7 @@ class EXT_Base_Tag extends EXT_Base_Element {
      * @param string $classe - Valor para o atributo "class".
      */
     public function setClasse($classe) {
-        $this->class = $classe;
+        $this->setAtributo('class',$classe);
         return $this;
     }
 
@@ -56,7 +76,7 @@ class EXT_Base_Tag extends EXT_Base_Element {
      * @return string 
      */
     public function getClasse() {
-        return $this->class;
+        return $this->getAtributo('class');
     }
 
     /**
@@ -64,7 +84,7 @@ class EXT_Base_Tag extends EXT_Base_Element {
      * @param string $nome Nome dado a tag.
      */
     public function setNome($nome) {
-        $this->name = $nome;
+        $this->setAtributo('name',$nome);
         return $this;
     }
     
@@ -73,8 +93,10 @@ class EXT_Base_Tag extends EXT_Base_Element {
      * @return string 
      */
     public function getNome() {
-        return $this->name;
+        return $this->getAtributo('name');
     }
+
+
 
     /* 
      * Adiciona um elemento filho à tag Html.

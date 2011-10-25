@@ -21,27 +21,23 @@
  */
 
 
-class EXT_Tag_Script extends EXT_Base_Tag {
+/**
+ * Classe para manipulação do elemento <div>; <br/>
+ * Define uma divisão ou uma seção em um documento HTML. <br/>
+ * @author Mardone Dias de Oliveira
+ * @link http://www.ibut.com.br
+ * @package ibutext.tag
+ */
+class EXT_Tag_Meta extends EXT_Base_Tag {
 
-    public static $scriptInterno;
-
-    public static function init() {
-        if (empty(self::$scriptInterno)) {
-            self::$scriptInterno = new EXT_Base_Tag('SCRIPT');
-            self::$scriptInterno->type = 'text/javascript';
-            self::$scriptInterno->add("$(document).ready(function() { \n");
-        }
-        return true;
+    public function __construct() {
+        parent::__construct('META');
     }
 
-    public static function addScript($script) {
-        self::init();
-        self::$scriptInterno->add($script);
-    }
 
-    public static function getScripts() {
-        self::$scriptInterno->add("\n});");
-        return self::$scriptInterno;
+    public function show(){
+        $this->tagUnica(true, false);
+        parent::show();
     }
 
 }

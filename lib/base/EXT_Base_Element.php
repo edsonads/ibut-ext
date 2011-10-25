@@ -1,14 +1,37 @@
 <?php
+/*
+ * ibut-ext
+ * https://github.com/mardonedias/ibut-ext
+ * Copyright 2011 Mardone Dias
+ *
+ * Este arquivo é parte da biblioteca ibut-ext
+ *
+ * ibut-ext é um software livre; você pode redistribui-lo e/ou
+ * modifica-lo dentro dos termos da Licença Pública Geral GNU como
+ * publicada pela Fundação do Software Livre (FSF); na versão 3 da
+ * Licença, ou (na sua opnião) qualquer versão.
+ *
+ * Esta biblioteca é distribuida na esperança que possa ser  util,
+ * mas SEM NENHUMA GARANTIA; sem uma garantia implicita de ADEQUAÇÂO a qualquer
+ * MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a
+ * Licença Pública Geral GNU para maiores detalhes.
+ *
+ * Você deve ter recebido uma cópia da Licença Pública Geral GNU
+ * junto com este programa, se não, acesse http://www.gnu.org/copyleft/gpl.txt
+ */
+
 
 /**
- * classe para abstração de tags HTML
+ * classe para abstração de tags HTML.
  * @package ibutext.base
  * @abstract
  */
 abstract class EXT_Base_Element {
 
-    private $nome;          // nome da TAG
-    private $propriedades;    // propriedades da TAG
+    private $nome;
+          // nome da TAG
+    private $propriedades;
+    // propriedades da TAG
     private $estilos;
     private $filhos;
     private $tagUnica;
@@ -22,23 +45,33 @@ abstract class EXT_Base_Element {
         $this->nome = $nome;
     }
 
-    /**
-     * intercepta as atribuições à propriedades do objeto
-     * @param string $nome = nome da propriedade
-     * @param string $valor = valor
-     */
-    public function __set($atributo, $valor) {
-        // armazena os valores atribuídos
-        // ao array properties
-        $this->propriedades[$atributo] = $valor;
+
+//    /**
+//     * retorna o valor de um atributo da tag.
+//     * @param string $atributo
+//     */
+//    public function __get($atributo) {
+//        return $this->propriedades[$atributo];
+//    }
+//
+//    /**
+//     * intercepta as atribuições à propriedades do objeto
+//     * @param string $nome = nome da propriedade
+//     * @param string $valor = valor
+//     */
+//    public function __set($atributo, $valor) {
+//        // armazena os valores atribuídos
+//        // ao array properties
+//        $this->propriedades[$atributo] = $valor;
+//    }
+
+    
+    public function setAtributo($nome, $valor) {
+        $this->propriedades[$nome] = $valor;
     }
 
-    /**
-     * retorna o valor de um atributo da tag.
-     * @param string $atributo
-     */
-    public function __get($atributo) {
-        return $this->propriedades[$atributo];
+    public function getAtributo($nome) {
+        return $this->propriedades[$nome];
     }
 
     /**
@@ -75,10 +108,9 @@ abstract class EXT_Base_Element {
      * Define se a tag é única ou dupla.
      * @param $valor  - O valor pode ser true ou false.
      */
-    public function eUnica($eunica, $fecha) {
+    protected function tagUnica($eunica, $fecha) {
         $this->tagUnica = $eunica;
         $this->fecha = $fecha;
-        
     }
 
     /**
@@ -146,5 +178,4 @@ abstract class EXT_Base_Element {
     }
 
 }
-
 ?>
