@@ -1,1 +1,1 @@
-Wiki https://github.com/mardonedias/ibut-ext/wiki
+Wiki https://github.com/mardonedias/ibut-ext/wiki/Inicio
