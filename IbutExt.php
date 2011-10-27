@@ -17,15 +17,14 @@
  * Licença Pública Geral GNU para maiores detalhes.
  */
 
-
 /**
  * Importar todas as classes da biblioteca que disponibilizam serviços.
  */
 IbutExt::importar('EXT_Utils');
+
 /* BASE */
 IbutExt::importar('base.EXT_Base_ElementCss');
 IbutExt::importar('base.EXT_Base_Tag');
-
 
 /* TAG */
 IbutExt::importar('tag.EXT_Tag_Div');
@@ -45,13 +44,11 @@ IbutExt::importar('tag.EXT_Tag_Style');
 IbutExt::importar('tag.EXT_Tag_Select');
 IbutExt::importar('tag.EXT_Tag_Tabela');
 
-
 /* CSS */
 IbutExt::importar('css.EXT_Css_Regra');
 
 /* Layout */
 IbutExt::importar('layout.EXT_Layout_FormHorizontal');
-
 
 /* TEMPLATE */
 IbutExt::importar('template.EXT_Template_Base');

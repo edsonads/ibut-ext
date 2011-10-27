@@ -1,4 +1,5 @@
 <?php
+
 /*
  * ibut-ext
  * https://github.com/mardonedias/ibut-ext
@@ -20,13 +21,6 @@
  * junto com este programa, se não, acesse http://www.gnu.org/copyleft/gpl.txt
  */
 
-
-/**
- * Classe para manipulação de elementos do tipo <input> usado para criação de componentes de entrada de dados.
- * @author Mardone Dias de Oliveira
- * @link http://www.ibut.com.br
- * @package ibutext.tag
- */
 class EXT_Tag_Input extends EXT_Base_Tag {
     const CAMPO = 'text';
     const CAMPO_INVISIVEL = 'hidden';
@@ -34,8 +28,8 @@ class EXT_Tag_Input extends EXT_Base_Tag {
     const CAIXA_DE_CHECAGEM = 'checkbox';
     const CAIXA_DE_OPCAO = 'radio';
     const BOTAO = 'button';
-    const ENVIAR = 'submit';
-    const LIMPAR = 'reset';
+    const BOTAO_ENVIAR = 'submit';
+    const BOTAO_LIMPAR = 'reset';
     const ARQUIVO= 'file';
 
     private $nome;
@@ -43,17 +37,20 @@ class EXT_Tag_Input extends EXT_Base_Tag {
     private $valor;
     private $tamanho;
     private $classe;
+    private $apenasLeitura;
 
-    public function __construct($nome, $tipo, $valor=null, $tamanho=null, $classe=null, $somenteLeitura=false) {
+    /**
+     * Classe para manipulação de elementos do tipo <input> usado para criação de componentes de entrada de dados.
+     * @package ibutext.tag
+     */
+    public function __construct($nome, $tipo, $valor=null, $tamanho=null, $classe=null, $apenasLeitura=false) {
         parent::__construct('INPUT');
         $this->nome = $nome;
         $this->tipo = $tipo;
         $this->valor = $valor;
         $this->tamanho = $tamanho;
         $this->classe = $classe;
-        if ($somenteLeitura) {
-            $this->readonly = true;
-        }
+        $this->apenasLeitura = $somenteLeitura;
     }
 
     public function setTipo($tipo) {
@@ -89,33 +86,42 @@ class EXT_Tag_Input extends EXT_Base_Tag {
     }
 
     public function apenasLeitura($valor) {
-        $this->readonly = $valor;
+        $this->apenasLeitura = $valor;
     }
 
-    public function setTeclaDeAtalho($tecla){
+    public function setTeclaDeAtalho($tecla) {
         $this->_setTeclaDeAtalho($tecla);
     }
 
-    public function setTabIndex($numero){
+    public function setTabIndex($numero) {
         $this->_setTabIndex($numero);
     }
-    
+
     public function show() {
         $this->name = $this->nome;
         $this->type = $this->tipo;
+        
         if ($this->valor != null) {
-            $this->value = $this->valor;
+            $this->setAtributo('value', $this->valor);
         }
+        
         if ($this->tamanho != null) {
-            $this->size = $this->tamanho;
+            $this->setAtributo('size',$this->tamanho);
         }
+        
         if ($this->classe != null) {
-            $this->class = $this->classe;
+            $this->setAtributo('class',$this->classe);
         }
+        
+        if ($this->apenasLeitura) {
+            $this->setAtributo('readonly',true);
+        }
+
 
         $this->tagUnica(true, false);
         parent::show();
     }
 
 }
+
 ?>

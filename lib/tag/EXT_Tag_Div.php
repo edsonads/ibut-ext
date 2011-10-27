@@ -35,6 +35,7 @@ class EXT_Tag_Div extends EXT_Base_Tag {
 
     public function add($conteudo) {
         parent::add($conteudo);
+        return $this;
     }
 
 }

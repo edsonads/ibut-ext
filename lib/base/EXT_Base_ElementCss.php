@@ -20,11 +20,8 @@
  * junto com este programa, se não, acesse http://www.gnu.org/copyleft/gpl.txt
  */
 
-
 /**
  * Classe para manipulação de regras CSS.
- * @author Mardone Dias de Oliveira
- * @link http://www.ibut.com.br
  * @package ibutext.base
  */
 abstract class EXT_Base_ElementCss{
@@ -32,9 +29,9 @@ abstract class EXT_Base_ElementCss{
     const CLASSE='.';
     const HTML='';
 
-    private $nome;          // nome do estilo
-    private $seletor;
-    private $propiedades;    // atributos
+    private $nome;              // nome do estilo
+    private $seletor;           //
+    private $propiedades;       // atributos
     static private $carregados; // array de estilos carregados
 
     /**
@@ -49,7 +46,7 @@ abstract class EXT_Base_ElementCss{
     }
 
     /**
-     * intercepta as atribuições á propriedades do objeto
+     * Intercepta as atribuições á propriedades do objeto
      * @param string $propriedade nome da propriedade
      * @param string $valor valor
      */

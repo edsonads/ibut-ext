@@ -92,11 +92,19 @@ class EXT_Base_Tag extends EXT_Base_Element {
         return $this->getAtributo('name');
     }
 
+    protected function setTitulo($titulo) {
+        $this->setAtributo('title',$titulo);
+    }
+    
+    protected function getTitulo() {
+        $this->getAtributo('title');
+    }    
+
     /**
      * Define a tecla de atalho usada em conjunto com a tecla ALT, <br/>
      * para direcionar o foca para a tag.
      */
-    protected function _setTeclaDeAtalho($tecla){
+    protected function setAccesskey($tecla){
         $this->setAtributo('accesskey',$tecla);
         return $this;
     }
@@ -105,10 +113,21 @@ class EXT_Base_Tag extends EXT_Base_Element {
      * Define a ordem de acesso a tag, ao usar a tecla TAB para navegar<br/>
      * nos elementos HTML.
      */
-    protected function _setTabIndex($numero){
+    protected function setTabIndex($numero){
         $this->setAtributo('tabindex',$numero);
         return $this;
     }
+    
+    
+    public function setDir($dir) {
+        $this->setAtributo('dir',$dir);
+        return $this;
+    }    
+
+    public function setLang($lang) {
+        $this->setAtributo('lang',$lang);
+        return $this;
+    }    
 
     public function show() {
         parent::show();
