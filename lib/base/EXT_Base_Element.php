@@ -20,7 +20,6 @@
  * junto com este programa, se não, acesse http://www.gnu.org/copyleft/gpl.txt
  */
 
-
 /**
  * classe para abstração de tags HTML.
  * @package ibutext.base
@@ -29,47 +28,35 @@
 abstract class EXT_Base_Element {
 
     private $nome;
-          // nome da TAG
     private $propriedades;
-    // propriedades da TAG
     private $estilos;
     private $filhos;
     private $tagUnica;
     private $fecha;
 
     /**
-     * instancia uma tag html
-     * @param string $nome = nome da tag
+     * Constroi uma tag html.
+     * @param string $nome = nome da tag HTML.
      */
     public function __construct($nome) {
         $this->nome = $nome;
     }
 
-
-//    /**
-//     * retorna o valor de um atributo da tag.
-//     * @param string $atributo
-//     */
-//    public function __get($atributo) {
-//        return $this->propriedades[$atributo];
-//    }
-//
-//    /**
-//     * intercepta as atribuições à propriedades do objeto
-//     * @param string $nome = nome da propriedade
-//     * @param string $valor = valor
-//     */
-//    public function __set($atributo, $valor) {
-//        // armazena os valores atribuídos
-//        // ao array properties
-//        $this->propriedades[$atributo] = $valor;
-//    }
-
-    
+    /**
+     * Adiciona um atributo à tag html.<br/>
+     * @param string $nome Nome do atributo.
+     * @param string $valor Valor do atributo.
+     */
     public function setAtributo($nome, $valor) {
         $this->propriedades[$nome] = $valor;
+        return $this;
     }
 
+    /**
+     * Recupera o valor de um atributo.
+     * @param string $nome Nome do atributo.
+     * @return string Retorna o valor do atributo.
+     */
     public function getAtributo($nome) {
         return $this->propriedades[$nome];
     }
@@ -83,6 +70,7 @@ abstract class EXT_Base_Element {
         if (!strpos($this->estilos, $propriedade)) {
             $this->estilos .= $propriedade . ':' . $valor . ';';
         }
+        return $this;
     }
 
     /**
@@ -93,24 +81,27 @@ abstract class EXT_Base_Element {
         foreach ($estilos as $propriedade => $valor) {
             $this->addEstilo($propriedade, $valor);
         }
+        return $this;
     }
 
     /**
-     * método add()
-     * adiciona um elemento filho
-     * @param string $elemento = objeto filho
+     * Adiciona um elemento filho ou texto à tag HTML.
+     * @param $filho Elemento filho ou texto.
      */
-    public function add($elemento) {
-        $this->filhos[] = $elemento;
+    protected function add($filho) {
+        $this->filhos[] = $filho;
+        return $this;
     }
 
     /**
-     * Define se a tag é única ou dupla.
-     * @param $valor  - O valor pode ser true ou false.
+     * Define o tipo da tag, que pode ser única ou dupla.<br/>
+     * @param boolean $eunica Informe true para tag única '<tag/>' e false para tag dupla '<tag></tag>'.
+     * @param boolean $fecha Se a tag for única define se será fechada ao final '<tag/>' ou não '<tag>'.
      */
     protected function tagUnica($eunica, $fecha) {
         $this->tagUnica = $eunica;
         $this->fecha = $fecha;
+        return $this;
     }
 
     /**
@@ -152,7 +143,8 @@ abstract class EXT_Base_Element {
     }
 
     /**
-     * exibe a tag na tela, juntamente com seu conteúdo
+     * Exibe a tag na tela, juntamente com seu conteúdo.<br/>
+     * No caso de haver tags filhas incluídas elas também serão exibidas.
      */
     public function show() {
         //Chama o método open() para abrir a tag

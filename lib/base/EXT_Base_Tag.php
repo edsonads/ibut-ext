@@ -20,26 +20,22 @@
  * junto com este programa, se não, acesse http://www.gnu.org/copyleft/gpl.txt
  */
 
-
-/**
+/*
  * Inclui a classe abstrata EXT_Base_Element à página.
  * @static
  */
 IbutExt::importar('base.EXT_Base_Element');
 
 /**
- * Classe abstrata que contém os principais métodos para a manipulação de tags Html.
- * @author Mardone Dias de Oliveira
- * @link http://www.ibut.com.br
+ * Classe que contém os principais métodos para a manipulação de tags Html.
  * @package ibutext.base
- * @abstract
  */
 class EXT_Base_Tag extends EXT_Base_Element {
 
     
     /**
-     *Constroui uma tag Html
-     * @param string $tag 
+     * Constroui uma tag Html.
+     * @param string $tag Tag a ser criada.
      */
     public function __construct($tag) {
         parent::__construct($tag);
@@ -47,7 +43,7 @@ class EXT_Base_Tag extends EXT_Base_Element {
 
     /**
      * Define um valor para o atibuto "id" da tag Html.
-     * @param string $id - Identificador da tag
+     * @param string $id Nome do atributo Id.
      */
     public function setId($id) {
         $this->setAtributo('id',$id);
@@ -56,7 +52,7 @@ class EXT_Base_Tag extends EXT_Base_Element {
 
     /**
      * Recupera o valor do atibuto "id" da tag html.
-     * @return string 
+     * @return string Retorna o nome do atributo id.
      */
     public function getId() {
         return $this->getAtributo('id');
@@ -64,7 +60,7 @@ class EXT_Base_Tag extends EXT_Base_Element {
 
     /**
      * Define um valor para o atibuto "class" da tag html.
-     * @param string $classe - Valor para o atributo "class".
+     * @param string $classe - Nome do atributo "class".
      */
     public function setClasse($classe) {
         $this->setAtributo('class',$classe);
@@ -73,7 +69,7 @@ class EXT_Base_Tag extends EXT_Base_Element {
 
     /**
      * Recupera o valor do atibuto "class".
-     * @return string 
+     * @return string Retorna o nome do atributo "class".
      */
     public function getClasse() {
         return $this->getAtributo('class');
@@ -81,7 +77,7 @@ class EXT_Base_Tag extends EXT_Base_Element {
 
     /**
      * Define um valor para o atributo "name" da tag Html.
-     * @param string $nome Nome dado a tag.
+     * @param string $nome Nome do atributo "name".
      */
     public function setNome($nome) {
         $this->setAtributo('name',$nome);
@@ -90,20 +86,27 @@ class EXT_Base_Tag extends EXT_Base_Element {
     
     /**
      * Recupera o valor do atibuto "name" da tag Html.
-     * @return string 
+     * @return string Retorna o nome do atributo "name".
      */
     public function getNome() {
         return $this->getAtributo('name');
     }
 
-
-
-    /* 
-     * Adiciona um elemento filho à tag Html.
-     * @param string $elemento - Elemento filho.
+    /**
+     * Define a tecla de atalho usada em conjunto com a tecla ALT, <br/>
+     * para direcionar o foca para a tag.
      */
-    public function add($elemento) {
-        parent::add($elemento);
+    protected function _setTeclaDeAtalho($tecla){
+        $this->setAtributo('accesskey',$tecla);
+        return $this;
+    }
+
+    /**
+     * Define a ordem de acesso a tag, ao usar a tecla TAB para navegar<br/>
+     * nos elementos HTML.
+     */
+    protected function _setTabIndex($numero){
+        $this->setAtributo('tabindex',$numero);
         return $this;
     }
 

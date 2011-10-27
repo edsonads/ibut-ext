@@ -20,11 +20,19 @@
  * junto com este programa, se não, acesse http://www.gnu.org/copyleft/gpl.txt
  */
 
-
 class EXT_Tag_H extends EXT_Base_Tag {
 
+    /**
+     * As tags <h1> a <h6> são usados ​​para definir cabeçalhos HTML.<br/>
+     * <h1> define o título mais importante. <h6> define o título menos importante.
+     * @package ibutext.tag
+     */
     public function __construct($numero) {
         parent::__construct("H{$numero}");
+    }
+
+    public function add($conteudo) {
+        parent::add($conteudo);
     }
 }
 

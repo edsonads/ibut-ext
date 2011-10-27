@@ -92,6 +92,14 @@ class EXT_Tag_Input extends EXT_Base_Tag {
         $this->readonly = $valor;
     }
 
+    public function setTeclaDeAtalho($tecla){
+        $this->_setTeclaDeAtalho($tecla);
+    }
+
+    public function setTabIndex($numero){
+        $this->_setTabIndex($numero);
+    }
+    
     public function show() {
         $this->name = $this->nome;
         $this->type = $this->tipo;
@@ -105,7 +113,7 @@ class EXT_Tag_Input extends EXT_Base_Tag {
             $this->class = $this->classe;
         }
 
-        $this->eUnica(true, false);
+        $this->tagUnica(true, false);
         parent::show();
     }
 
