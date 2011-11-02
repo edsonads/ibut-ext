@@ -118,7 +118,6 @@ class EXT_Base_Tag extends EXT_Base_Element {
         return $this;
     }
     
-    
     public function setDir($dir) {
         $this->setAtributo('dir',$dir);
         return $this;

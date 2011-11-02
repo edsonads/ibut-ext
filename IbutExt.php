@@ -53,12 +53,13 @@ IbutExt::importar('layout.EXT_Layout_FormHorizontal');
 /* TEMPLATE */
 IbutExt::importar('template.EXT_Template_Base');
 IbutExt::importar('template.EXT_Template_Mapa');
-IbutExt::importar('template.EXT_Template_Simples');
-IbutExt::importar('template.EXT_Template_Navbar_Simples');
-IbutExt::importar('template.EXT_Template_Admin');
 
 /* WIDGET */
 IbutExt::importar('widget.EXT_Widget_LinkBar');
+
+/*EXEMPLOS*/
+IbutExt::importar('exemplos.EXT_Template_Simples');
+
 
 /**
  * Essa classe é responsável pelo carregamento dos objetos da biblioteca.

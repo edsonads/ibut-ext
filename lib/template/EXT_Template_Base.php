@@ -1,4 +1,5 @@
 <?php
+
 /*
  * ibut-ext
  * https://github.com/mardonedias/ibut-ext
@@ -20,7 +21,6 @@
  * junto com este programa, se não, acesse http://www.gnu.org/copyleft/gpl.txt
  */
 
-
 abstract class EXT_Template_Base {
 
     private $html;
@@ -37,8 +37,8 @@ abstract class EXT_Template_Base {
     protected function setCodificacao($codificacao) {
         $meta = new EXT_Tag_Meta();
         $tipo = 'http-equiv';
-        $meta->setAtributo($tipo,"Content-Type");
-        $meta->setAtributo('content',"text/html; charset=" . $codificacao);
+        $meta->setAtributo($tipo, "Content-Type");
+        $meta->setAtributo('content', "text/html; charset=" . $codificacao);
         $this->head->add($meta);
     }
 
@@ -55,7 +55,7 @@ abstract class EXT_Template_Base {
      */
     public function setMetaPalavrasChave($palavrasChave) {
         $meta = new EXT_Tag_Meta();
-        $meta->setAtributo('name',"keywords");
+        $meta->setAtributo('name', "keywords");
         $meta->setAtributo('content', $palavrasChave);
         $this->head->add($meta);
     }
@@ -67,8 +67,8 @@ abstract class EXT_Template_Base {
      */
     public function setMetaDescricao($descricao) {
         $meta = new EXT_Tag_Meta();
-        $meta->setAtributo('name',"description");
-        $meta->setAtributo('content',$descricao);
+        $meta->setAtributo('name', "description");
+        $meta->setAtributo('content', $descricao);
         $this->head->add($meta);
     }
 
@@ -100,8 +100,8 @@ abstract class EXT_Template_Base {
 
     protected function addScript($url, $inHead=true) {
         $script = new EXT_Base_Tag("SCRIPT");
-        $script->setAtributo('type','text/javascript');
-        $script->setAtributo('src',EXT_Utils::retornaUrl($url));
+        $script->setAtributo('type', 'text/javascript');
+        $script->setAtributo('src', EXT_Utils::retornaUrl($url));
 
         if ($inHead) {
             $this->head->add($script);
@@ -112,7 +112,7 @@ abstract class EXT_Template_Base {
 
     protected function addScriptFragment($fragmento, $inHead=true) {
         $script = new EXT_Base_Tag("SCRIPT");
-        $script->setAtributo('type','text/javascript');
+        $script->setAtributo('type', 'text/javascript');
         $script->add($fragmento);
 
         if ($inHead) {
@@ -126,13 +126,17 @@ abstract class EXT_Template_Base {
         $this->body->add($conteudo);
     }
 
+    public function setCssLayout($url) {
+        EXT_Tag_Script::addScript("$.setTemplateLayout('" . EXT_Utils::retornaUrl($url) . "');");
+    }
+
     public function validaHtmlW3C() {
         $img = new EXT_Tag_Imagem();
-        $img->setAtributo('src','http://www.w3.org/Icons/valid-html401');
+        $img->setAtributo('src', 'http://www.w3.org/Icons/valid-html401');
         $img->setAlt('Valid HTML 4.01 Strict');
-        $img->setAtributo('height','31');
-        $img->setAtributo('width','88');
-        
+        $img->setAtributo('height', '31');
+        $img->setAtributo('width', '88');
+
         $p = new EXT_Tag_Paragrafo();
         $p->add(new EXT_Tag_Hiperlink('http://validator.w3.org/check?uri=referer', $img));
         return $p;

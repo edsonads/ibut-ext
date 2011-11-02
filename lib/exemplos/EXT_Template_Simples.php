@@ -21,14 +21,14 @@
  */
 
 
+
 class EXT_Template_Simples extends EXT_Template_Base {
-
-
 
     public function __construct() {
         parent::__construct();
         $this->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js');
-        $this->addCss(IbutExt::getExtBaseCss() . 'ibutext-all.css');
+        $this->addScript(BASE_URL . '/lib/recursos/js/jquery.tpl_layout1.1.6.min.js');        
+//        $this->addCss(IbutExt::getExtBaseCss() . 'ibutext-all.css');
         $this->setCodificacao('UTF-8');
         $this->addFavIcon(IbutExt::getExtBaseCss() . 'icone.ico');
     }

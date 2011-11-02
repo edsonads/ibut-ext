@@ -28,11 +28,11 @@ class EXT_Tag_Imagem extends EXT_Base_Tag {
      */
     public function __construct() {
         parent::__construct('IMG');
-        parent::tagUnica(true, false);
+        parent::tagUnica(true, true);
     }
 
     public function setUrl($src) {
-        $this->setAtributo('src',$src);
+        $this->setAtributo('src',  EXT_Utils::retornaUrl($src));
     }
 
     public function setAlt($alt) {
@@ -59,10 +59,6 @@ class EXT_Tag_Imagem extends EXT_Base_Tag {
        return parent::getTitulo();
     }
 
-    public function show() {
-        $this->tagUnica(true, false);
-        parent::show();
-    }
 
 }
 

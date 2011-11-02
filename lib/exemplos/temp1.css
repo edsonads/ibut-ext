@@ -1,0 +1,68 @@
+body { 
+	margin: 0;
+	padding: 0;
+	
+    display:    ".hhh."
+                ".nnn."
+                ".ocp."
+                ".fff."
+    * 100px minmax(500px,800px) 12em *
+    ;
+	width: 100%;
+	background: #DDF;   
+}
+
+#header { position: h; text-align: center; }
+
+#content { 
+	position: c;
+	margin: .5em;
+}
+
+#nav1 { 
+	position: n;
+	background: #AAD;
+	margin: 0;
+	padding: .5em;
+}
+
+#nav1 li { 
+	display: inline;
+	margin: 0 20px;
+}
+
+
+body::slot(o) {
+	background: #FDD;
+}
+body::slot(p) {
+	background: #DFD;
+	vertical-align: middle;
+}
+
+#nav2 { position: o }
+
+#nav3 { 
+	position: p;
+	text-align: center;
+}
+
+#footer { 
+	position: f; 
+	text-align: center;
+	font-weight: bold;
+}
+
+#header, #footer {
+	background: #CCE;
+}
+
+#figure p {
+	float: right;
+	width: 150px;
+	height: 200px;
+	margin: .5em;
+	padding: .5em;
+	background: #000;
+	color: white;
+}
