@@ -43,6 +43,7 @@ IbutExt::importar('tag.EXT_Tag_Span');
 IbutExt::importar('tag.EXT_Tag_Style');
 IbutExt::importar('tag.EXT_Tag_Select');
 IbutExt::importar('tag.EXT_Tag_Tabela');
+IbutExt::importar('tag.EXT_Tag_Tag');
 
 /* CSS */
 IbutExt::importar('css.EXT_Css_Regra');

@@ -22,15 +22,16 @@
  */
 
 class EXT_Tag_Input extends EXT_Base_Tag {
-    const CAMPO = 'text';
-    const CAMPO_INVISIVEL = 'hidden';
-    const CAMPO_SENHA = 'password';
-    const CAIXA_DE_CHECAGEM = 'checkbox';
-    const CAIXA_DE_OPCAO = 'radio';
     const BOTAO = 'button';
-    const BOTAO_ENVIAR = 'submit';
-    const BOTAO_LIMPAR = 'reset';
+    const CAIXA_DE_CHECAGEM = 'checkbox';
     const ARQUIVO= 'file';
+    const CAMPO_INVISIVEL = 'hidden';
+    const IMAGEM = 'image';
+    const CAMPO_SENHA = 'password';
+    const CAIXA_DE_OPCAO = 'radio';
+    const BOTAO_LIMPAR = 'reset';
+    const BOTAO_ENVIAR = 'submit';
+    const CAMPO = 'text';
 
     private $nome;
     private $tipo;
@@ -38,51 +39,92 @@ class EXT_Tag_Input extends EXT_Base_Tag {
     private $tamanho;
     private $classe;
     private $apenasLeitura;
+    private $qtdCaractere;
+    private $alt;
 
     /**
-     * Classe para manipulação de elementos do tipo <input> usado para criação de componentes de entrada de dados.
+     * A tag <input> é usado para selecionar informações do usuário.
+     * Um campo de entrada pode variar de muitas formas, dependendo do atributo "type". 
+     * Um campo de entrada pode ser um campo de texto, uma caixa de seleção, um campo de senha, um botão de rádio,
+     * um botão, e muito mais.
+     *
+     * @param string $nome Nome da input.
+     * @param string $tipo Tipo da input.
+     * @param string $valor Valor da input.
+     * @param int $tamanho Comprimento do campo.
+     * @param string $classe Classe css.
+     * @param boolean $apenasLeitura Informe true se o campo for editavel e false para o campo somente leitura.
+     * @param int $qtdCaractere Limita a quantidade de caracteres que podem ser inseridos nos campos do tipo text e password.
+     * @param int $alt 
+     * 
      * @package ibutext.tag
      */
-    public function __construct($nome, $tipo, $valor=null, $tamanho=null, $classe=null, $apenasLeitura=false) {
+    public function __construct($nome, $tipo, $valor=null, $tamanho=null, $classe=null, $apenasLeitura=false, $qtdCaractere=null, $alt=null) {
         parent::__construct('INPUT');
         $this->nome = $nome;
         $this->tipo = $tipo;
         $this->valor = $valor;
         $this->tamanho = $tamanho;
         $this->classe = $classe;
-        $this->apenasLeitura = $somenteLeitura;
+        $this->apenasLeitura = $apenasLeitura;
+
+        if ($this->tipo == EXT_Tag_Input::CAMPO || $this->tipo == EXT_Tag_Input::CAMPO_SENHA) {
+            $this->qtdCaractere = $qtdCaractere;
+        }
+
+        if ($this->tipo == EXT_Tag_Input::IMAGEM) {
+            $this->alt = $alt;
+        }
     }
 
+    public function getNome() {
+        return $this->nome;
+    }
+
+    /**
+     * Especifica o tipo de um elemento de entrada.
+     * @param string $tipo Tipo do elemento.
+     */
     public function setTipo($tipo) {
         $this->tipo = $tipo;
-    }
-
-    public function setValor($valor) {
-        $this->valor = $valor;
     }
 
     public function getTipo() {
         return $this->tipo;
     }
 
+    public function setValor($valor) {
+        $this->valor = $valor;
+    }
+
     public function getValor() {
         return $this->valor;
+    }
+
+    public function setAlt($valor) {
+        $this->alt = $valor;
     }
 
     public function setTamanho($valor) {
         $this->tamanho = $valor;
     }
 
-    public function setMaxCaractere($valor) {
-        $this->maxlength = $valor;
+    public function setClasse($classe) {
+        $this->classe = $classe;
     }
 
-    public function setMinimo($valor) {
-        $this->min = $valor;
+    public function setVerificado($marcado) {
+        if ($marcado ==true && ($this->tipo == EXT_Tag_Input::CAIXA_DE_CHECAGEM || $this->tipo == EXT_Tag_Input::CAIXA_DE_OPCAO)) {
+            $this->setAtributo('checked','checked');
+        }
     }
 
-    public function setMaximo($valor) {
-        $this->max = $valor;
+    /**
+     * Especifica o comprimento máximo (em caracteres) de um campo de entrada (para type = "text" ou type = "password")
+     * @param type $valor 
+     */
+    public function setQtdCaractere($valor) {
+        $this->qtdCaractere = $valor;
     }
 
     public function apenasLeitura($valor) {
@@ -98,30 +140,40 @@ class EXT_Tag_Input extends EXT_Base_Tag {
     }
 
     public function show() {
-        $this->name = $this->nome;
-        $this->type = $this->tipo;
-        
+        $this->setAtributo('name', $this->nome);
+        $this->setAtributo('type', $this->tipo);
+
         if ($this->valor != null) {
             $this->setAtributo('value', $this->valor);
         }
-        
+
         if ($this->tamanho != null) {
-            $this->setAtributo('size',$this->tamanho);
+            $this->setAtributo('size', $this->tamanho);
         }
-        
+
         if ($this->classe != null) {
-            $this->setAtributo('class',$this->classe);
+            parent::setClasse($this->classe);
         }
-        
+
         if ($this->apenasLeitura) {
-            $this->setAtributo('readonly',true);
+            $this->setAtributo('readonly', 'readonly');
+        }
+
+        //Adiciona o atributo maxlength apenas se for passado algum valor e se o tipo
+        //for text ou password.
+        if ($this->qtdCaractere != null) {
+            $this->setAtributo('maxlength', $this->qtdCaractere);
+        }
+
+        if ($this->alt != null) {
+            $this->setAtributo('alt', $this->alt);
         }
 
 
-        $this->tagUnica(true, false);
+        $this->tagUnica(true, true);
         parent::show();
     }
 
 }
-
 ?>
+

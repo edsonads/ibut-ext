@@ -21,15 +21,15 @@
  */
 
 
-class EXT_Tag_Script extends EXT_Base_Tag {
+class EXT_Tag_Script{
 
     public static $scriptInterno;
 
     public static function init() {
         if (empty(self::$scriptInterno)) {
-            self::$scriptInterno = new EXT_Base_Tag('SCRIPT');
-            self::$scriptInterno->type = 'text/javascript';
-            self::$scriptInterno->add("$(document).ready(function() { \n");
+            self::$scriptInterno = new EXT_Tag_Tag('SCRIPT');
+            self::$scriptInterno->setAtributo('type','text/javascript');
+//            self::$scriptInterno->add("$(document).ready(function() { \n");
         }
         return true;
     }
@@ -40,7 +40,7 @@ class EXT_Tag_Script extends EXT_Base_Tag {
     }
 
     public static function getScripts() {
-        self::$scriptInterno->add("\n});");
+//        self::$scriptInterno->add("\n});");
         return self::$scriptInterno;
     }
 
