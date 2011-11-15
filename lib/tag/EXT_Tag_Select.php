@@ -1,4 +1,5 @@
 <?php
+
 /*
  * ibut-ext
  * https://github.com/mardonedias/ibut-ext
@@ -20,18 +21,41 @@
  * junto com este programa, se não, acesse http://www.gnu.org/copyleft/gpl.txt
  */
 
-
 class EXT_Tag_Select extends EXT_Base_Tag {
 
     public function __construct() {
         parent::__construct('SELECT');
     }
+
+    public function addOpaco($valor, $texto, $selecionado=false) {
+        $opcao = new EXT_Tag('OPTION');
+        $opcao->setAtributo('value', $valor);
+        $opcao->add($texto);
+
+        if ($selecionado) {
+            $opcao->setAtributo('selected', '');
+        }
+
+        $this->add($opcao);
+    }
+
+    public function setDesabilitar() {
+        $this->setAtributo('disabled', 'disabled');
+    }
+
+    /**
+     * Seleção múltipla.
+     */
+    public function setMultiselect() {
+        $this->setAtributo('multiple', 'multiple');
+    }
     
-    
-    public function addOpaco($opcao){
-        $o=new EXT_Base_Tag('OPTION');
-        $o->add($opcao);
-        $this->add($o);
+    /**
+     * Cria lista 
+     * @param int $tamanho 
+     */
+    public function setTamanhoDaLista($tamanho) {
+        $this->setAtributo('size', $tamanho);
     }
     
 }

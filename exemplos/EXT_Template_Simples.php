@@ -21,23 +21,23 @@
  */
 
 
-/**
- * Inclui a classe abstrata Tag a página.
- * @static
- */
-//IbutExt::importar('base.EXT_Base_Tag');
 
-/**
- * Classe para manipulação do elemento <P>; <br/>
- * @author Mardone Dias de Oliveira
- * @link http://www.ibut.com.br
- * @package ibutext.tag
- */
-class EXT_Tag_Paragrafo extends EXT_Base_Tag {
+class EXT_Template_Simples extends EXT_Template_Base {
 
     public function __construct() {
-        parent::__construct('P');
+        parent::__construct();
+
+        $this->addCss('recursos/css/ibutext-all.css');
+        $this->setCodificacao('UTF-8');
+        $this->addFavIcon(IbutExt::getExtBaseCss() . 'icone.ico');
+        $this->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js');
     }
+    
+
+    public function show() {
+        parent::show();
+    }
+
 }
 
 ?>

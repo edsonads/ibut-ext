@@ -21,7 +21,7 @@
  * junto com este programa, se não, acesse http://www.gnu.org/copyleft/gpl.txt
  */
 
-class EXT_Tag_Hiperlink extends EXT_Base_Tag {
+class EXT_Tag_A extends EXT_Base_Tag {
     
     const NOVA_JANELA=true; //Define se a janela será aberta em uma nova aba.
     private $url; //Endereço do link.

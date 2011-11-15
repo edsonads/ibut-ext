@@ -1,4 +1,5 @@
 <?php
+
 /*
  * ibut-ext
  * https://github.com/mardonedias/ibut-ext
@@ -20,46 +21,45 @@
  * junto com este programa, se não, acesse http://www.gnu.org/copyleft/gpl.txt
  */
 
-
-/**
- * Inclui a classe abstrata Tag a página.
- * @static
- */
-//IbutExt::importar('base.EXT_Base_Tag');
-
-/**
- * Classe para manipulação dos elementos <ol> e <ul>.
- * ol á a tag Html para criação de listas ordenadas e ul para
- * listas não ordenadas<br/>
- * @author Mardone Dias de Oliveira
- * @link http://www.ibut.com.br
- * @package ibutext.tags
- */
-class EXT_Tag_Lista extends EXT_Base_Tag {
-
+class EXT_Tag_List extends EXT_Base_Tag {
     const LISTA_ORDENADA='OL';
     const LISTA_NAO_ORDENADA='UL';
     private $item;
 
-    public function __construct($tipoDaLista=Lista::LISTA_NAO_ORDENADA) {
-        parent::__construct($tipoDaLista);
-    }
+    
+/*> &gt; 
+< &lt;
+:: &Colon;    */
     
     /**
-     *Adiciona um item a Lista (ul/ol).
-     * @method addItem()
+     * Classe para manipulação dos elementos &lt;ol&gt; e &lt;ul&gt;.
+     * &lt;ol&gt; á a tag Html para criação de listas ordenadas e &lt;ul&gt; para
+     * listas não ordenadas<br/>
+     * @author Mardone Dias de Oliveira
+     * @link https://github.com/mardonedias/ibut-ext
+     * @package ibutext.tag
+     */
+    public function __construct($tipoDaLista= EXT_Tag_List::LISTA_NAO_ORDENADA) {
+        parent::__construct($tipoDaLista);
+    }
+
+    /**
+     * Adiciona um item a Lista (ul/ol).
      * @param $item - Conteudo do item.  
      */
-    public function addItem($item){
-        $this->item = new EXT_Base_Tag('LI');
+    public function addItem($item) {
+        $this->item = new EXT_Tag('LI');
         $this->item->add($item);
         $this->add($this->item);
     }
 
-    public function itemAdd($conteudo){
+    
+    public function addConteudo($conteudo) {
         $this->item->add($conteudo);
     }
-    
+
 }
 
 ?>
+
+

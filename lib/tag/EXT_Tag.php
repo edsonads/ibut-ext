@@ -1,4 +1,5 @@
 <?php
+
 /*
  * ibut-ext
  * https://github.com/mardonedias/ibut-ext
@@ -20,46 +21,20 @@
  * junto com este programa, se não, acesse http://www.gnu.org/copyleft/gpl.txt
  */
 
-class EXT_Tag_Imagem extends EXT_Base_Tag {
+class EXT_Tag extends EXT_Base_Tag {
 
     /**
-     * 
      * @package ibutext.tag
      */
-    public function __construct() {
-        parent::__construct('IMG');
-        parent::tagUnica(true, true);
+
+    public function __construct($nome) {
+        parent::__construct($nome);
     }
 
-    public function setUrl($src) {
-        $this->setAtributo('src',  EXT_Utils::retornaUrl($src));
+    
+    public function add($conteudo) {
+        parent::add($conteudo);
+        return $this;
     }
-
-    public function setAlt($alt) {
-        $this->setAtributo('alt',$alt);
-    }
-
-    public function setAltura($altura) {
-        $this->setAtributo('height',$altura);
-    }
-
-    public function setlargura($largura) {
-        $this->setAtributo('width',$largura);
-    }
-
-    public function setUseMap($usemap) {
-        $this->setAtributo('usemap',$usemap);
-    }
-
-    public function setTitulo($titulo) {
-        parent::setTitulo($titulo);
-    }
-
-    public function getTitulo() {
-       return parent::getTitulo();
-    }
-
-
 }
-
 ?>

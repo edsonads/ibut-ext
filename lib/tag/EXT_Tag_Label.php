@@ -29,11 +29,11 @@ class EXT_Tag_Label extends EXT_Base_Tag {
     }
     
     public function setFor($para){
-        $this->for=$para;
+        $this->setAtributo('for',$para);
     }
 
     public function getFor(){
-        return $this->for;
+        return $this->getAtributo('for');
     }
     
 }

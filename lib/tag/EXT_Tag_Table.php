@@ -25,7 +25,7 @@
  * classe EXT_Tabela
  * responsável pela exibição de tabelas
  */
-class EXT_Tag_Tabela extends EXT_Base_Tag {
+class EXT_Tag_Table extends EXT_Base_Tag {
 
     private $linhas;
     private $valores;

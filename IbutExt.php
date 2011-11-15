@@ -29,20 +29,21 @@ IbutExt::importar('base.EXT_Base_Tag');
 /* TAG */
 IbutExt::importar('tag.EXT_Tag_Div');
 IbutExt::importar('tag.EXT_Tag_Form');
-IbutExt::importar('tag.EXT_Tag_Hiperlink');
+IbutExt::importar('tag.EXT_Tag_A');
 IbutExt::importar('tag.EXT_Tag_H');
-IbutExt::importar('tag.EXT_Tag_Imagem');
+IbutExt::importar('tag.EXT_Tag_Img');
 IbutExt::importar('tag.Ext_Tag_Input');
 IbutExt::importar('tag.EXT_Tag_Label');
 IbutExt::importar('tag.EXT_Tag_Link');
-IbutExt::importar('tag.EXT_Tag_Lista');
+IbutExt::importar('tag.EXT_Tag_List');
 IbutExt::importar('tag.EXT_Tag_Meta');
-IbutExt::importar('tag.EXT_Tag_Paragrafo');
+IbutExt::importar('tag.EXT_Tag_P');
 IbutExt::importar('tag.EXT_Tag_Script');
 IbutExt::importar('tag.EXT_Tag_Span');
 IbutExt::importar('tag.EXT_Tag_Style');
 IbutExt::importar('tag.EXT_Tag_Select');
-IbutExt::importar('tag.EXT_Tag_Tabela');
+IbutExt::importar('tag.EXT_Tag_Table');
+IbutExt::importar('tag.EXT_Tag');
 
 /* CSS */
 IbutExt::importar('css.EXT_Css_Regra');
@@ -56,9 +57,9 @@ IbutExt::importar('template.EXT_Template_Mapa');
 
 /* WIDGET */
 IbutExt::importar('widget.EXT_Widget_LinkBar');
+IbutExt::importar('widget.EXT_Widget_Painel');
 
-/*EXEMPLOS*/
-IbutExt::importar('exemplos.EXT_Template_Simples');
+
 
 
 /**

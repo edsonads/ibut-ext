@@ -20,14 +20,6 @@
  * junto com este programa, se não, acesse http://www.gnu.org/copyleft/gpl.txt
  */
 
-
-/**
- * Classe para manipulação do elemento <div>; <br/>
- * Define uma divisão ou uma seção em um documento HTML. <br/>
- * @author Mardone Dias de Oliveira
- * @link http://www.ibut.com.br
- * @package ibutext.tag
- */
 class EXT_Tag_Link extends EXT_Base_Tag {
     const TIPO_CSS='text/css';
     const TIPO_ICONE='image/x-icon';
@@ -61,9 +53,7 @@ class EXT_Tag_Link extends EXT_Base_Tag {
     public function getHref(){
         $this->getAtributo('href');
     }
-
-    
-    
+       
     public function show(){
         $this->tagUnica(true, false);
         parent::show();

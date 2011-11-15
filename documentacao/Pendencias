@@ -1,9 +1,7 @@
 
-10-06-2011
+14-11-2011
 Mardone Dias
 --------------------------------
- * Concluir a implementação das classes EXT_Paragrafo e EXT_Imagem e corrigir o método validaW3c() da classe EXT_Basetemplate.
- * Implementar formulário.
-
+ * Falta concluir correção das tags: EXT_Tag_Select, EXT_Tag_Script, EXT_Tag_Style e EXT_Tag_Table.
 
 

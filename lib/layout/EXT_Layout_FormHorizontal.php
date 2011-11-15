@@ -21,7 +21,7 @@
  */
 
 
-class EXT_Layout_FormHorizontal extends EXT_Tag_Lista {
+class EXT_Layout_FormHorizontal extends EXT_Tag_List {
 
     private $hvv;
 
@@ -34,7 +34,7 @@ class EXT_Layout_FormHorizontal extends EXT_Tag_Lista {
         if (isset($this->hvv)) {
             $this->addItem($this->hvv);
         }
-        $this->hvv = new EXT_Tag_Lista('UL');
+        $this->hvv = new EXT_Tag_List();
         $this->hvv->setClasse('hvv');
     }
 
@@ -43,7 +43,7 @@ class EXT_Layout_FormHorizontal extends EXT_Tag_Lista {
 
         if ($legenda != null) {
             $this->hvv->addItem($leg);
-            $this->hvv->itemAdd($elemento);
+            $this->hvv->addConteudo($elemento);
         }else{
             $this->hvv->addItem($elemento);
         }

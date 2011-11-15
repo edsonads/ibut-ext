@@ -37,3 +37,7 @@ body{min-width: 800px;}
 #pagina #conteudo{margin-left: 202px;}
 #pagina #rodape{clear:left;}
 #topo, #nav, #menu, #conteudo, #rodape{border: dotted 1px black;margin: 5px;padding: 5px;}
+
+a{
+    background-repeat: 
+}

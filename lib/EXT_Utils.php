@@ -34,7 +34,10 @@ class EXT_Utils {
         return $urlCheck;
     }
 
-
+    public static function comentario($texto) {
+        return '<!--' . $texto . '-->';
+    }
+    
 
 }
 

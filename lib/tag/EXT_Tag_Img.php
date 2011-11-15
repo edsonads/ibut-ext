@@ -20,22 +20,45 @@
  * junto com este programa, se não, acesse http://www.gnu.org/copyleft/gpl.txt
  */
 
+class EXT_Tag_Img extends EXT_Base_Tag {
 
-
-class EXT_Template_Simples extends EXT_Template_Base {
-
+    /**
+     * 
+     * @package ibutext.tag
+     */
     public function __construct() {
-        parent::__construct();
-        $this->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js');
-        $this->addScript(BASE_URL . '/lib/recursos/js/jquery.tpl_layout1.1.6.min.js');        
-//        $this->addCss(IbutExt::getExtBaseCss() . 'ibutext-all.css');
-        $this->setCodificacao('UTF-8');
-        $this->addFavIcon(IbutExt::getExtBaseCss() . 'icone.ico');
+        parent::__construct('IMG');
+        parent::tagUnica(true, true);
     }
 
-    public function show() {
-        parent::show();
+    public function setUrl($src) {
+        $this->setAtributo('src',  EXT_Utils::retornaUrl($src));
     }
+
+    public function setAlt($alt) {
+        $this->setAtributo('alt',$alt);
+    }
+
+    public function setAltura($altura) {
+        $this->setAtributo('height',$altura);
+    }
+
+    public function setlargura($largura) {
+        $this->setAtributo('width',$largura);
+    }
+
+    public function setUseMap($usemap) {
+        $this->setAtributo('usemap',$usemap);
+    }
+
+    public function setTitulo($titulo) {
+        parent::setTitulo($titulo);
+    }
+
+    public function getTitulo() {
+       return parent::getTitulo();
+    }
+
 
 }
 

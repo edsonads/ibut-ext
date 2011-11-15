@@ -64,6 +64,12 @@ class EXT_Tag_Form extends EXT_Base_Tag {
     }
 
     /**
+     */
+    public function add($filho) {
+        parent::add($filho);
+    }
+
+    /**
      * Especifica como os dados do formulário devem ser codificados antes de enviá-lo para um servidor.
      * @param <type> $url
      */

@@ -1,4 +1,5 @@
 <?php
+
 /*
  * ibut-ext
  * https://github.com/mardonedias/ibut-ext
@@ -20,25 +21,22 @@
  * junto com este programa, se não, acesse http://www.gnu.org/copyleft/gpl.txt
  */
 
-
-/**
- * Inclui a classe EXT_Tag a página.
- * @static
- */
-//IbutExt::importar('base.EXT_Base_Tag');
-
-/**
- * Classe para manipulação do elemento <span>; <br/>
- * ????????????????????????????????????????????????????????????????
- * @author Mardone Dias de Oliveira
- * @link http://www.ibut.com.br
- * @package ibutext.tags
- */
 class EXT_Tag_Span extends EXT_Base_Tag {
 
+    /**
+     * Classe para manipulação do elemento &lt;span&gt; <br/>
+     * @author Mardone Dias de Oliveira
+     * @link https://github.com/mardonedias/ibut-ext
+     * @package ibutext.tag
+     */
     public function __construct() {
         parent::__construct('SPAN');
     }
+
+    public function add($filho) {
+        parent::add($filho);
+    }
+
 }
 
 ?>

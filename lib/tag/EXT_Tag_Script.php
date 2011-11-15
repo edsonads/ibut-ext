@@ -21,14 +21,14 @@
  */
 
 
-class EXT_Tag_Script extends EXT_Base_Tag {
+class EXT_Tag_Script{
 
     public static $scriptInterno;
 
     public static function init() {
         if (empty(self::$scriptInterno)) {
-            self::$scriptInterno = new EXT_Base_Tag('SCRIPT');
-            self::$scriptInterno->type = 'text/javascript';
+            self::$scriptInterno = new EXT_Tag('SCRIPT');
+            self::$scriptInterno->setAtributo('type','text/javascript');
             self::$scriptInterno->add("$(document).ready(function() { \n");
         }
         return true;
