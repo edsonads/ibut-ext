@@ -14,6 +14,7 @@ $p->setTituloBg('a', 'recursos/img/ibut-ext.png');
 $p->setTituloBg('a', 'recursos/img/ibut-ext.png');
 
 $t=new EXT_Template_Simples();
+$t->add('Casas');
 $t->add($p);
 $t->show();
 
