@@ -26,13 +26,16 @@ IbutExt::importar('EXT_Utils');
 IbutExt::importar('base.EXT_Base_ElementCss');
 IbutExt::importar('base.EXT_Base_Tag');
 
+/* CSS */
+IbutExt::importar('css.EXT_Css_Regra');
+
 /* TAG */
 IbutExt::importar('tag.EXT_Tag_Div');
 IbutExt::importar('tag.EXT_Tag_Form');
 IbutExt::importar('tag.EXT_Tag_A');
 IbutExt::importar('tag.EXT_Tag_H');
 IbutExt::importar('tag.EXT_Tag_Img');
-IbutExt::importar('tag.Ext_Tag_Input');
+IbutExt::importar('tag.EXT_Tag_Input');
 IbutExt::importar('tag.EXT_Tag_Label');
 IbutExt::importar('tag.EXT_Tag_Link');
 IbutExt::importar('tag.EXT_Tag_List');
@@ -45,8 +48,7 @@ IbutExt::importar('tag.EXT_Tag_Select');
 IbutExt::importar('tag.EXT_Tag_Table');
 IbutExt::importar('tag.EXT_Tag');
 
-/* CSS */
-IbutExt::importar('css.EXT_Css_Regra');
+
 
 /* Layout */
 IbutExt::importar('layout.EXT_Layout_FormHorizontal');

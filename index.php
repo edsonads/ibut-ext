@@ -6,16 +6,20 @@ IbutExt::setExtBaseUrl(BASE_URL);
 //Include
 include_once 'exemplos/EXT_Template_Simples.php';
 
+$estilos=new EXT_Css_Regra('#', 'teste');
+$estilos->background_color='red';
+$estilos->color='white';
 
+EXT_Tag_Style::addRegra($estilos);
 
-$p=new EXT_Widget_Painel('aaa');
-$p->setTitulo('sfd');
-$p->setTituloBg('a', 'recursos/img/ibut-ext.png');
-$p->setTituloBg('a', 'recursos/img/ibut-ext.png');
+$camada=new EXT_Tag_Div();
+$camada->add('Camada exemplo');
+$camada->setId('teste');
+        
+EXT_Tag_Script::addScript('alert("Olá mundo!")');
 
 $t=new EXT_Template_Simples();
-$t->add('Casas');
-$t->add($p);
+$t->add($camada);
 $t->show();
 
 

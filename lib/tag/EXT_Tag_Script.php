@@ -1,4 +1,5 @@
 <?php
+
 /*
  * ibut-ext
  * https://github.com/mardonedias/ibut-ext
@@ -20,16 +21,17 @@
  * junto com este programa, se não, acesse http://www.gnu.org/copyleft/gpl.txt
  */
 
-
-class EXT_Tag_Script{
+class EXT_Tag_Script {
 
     public static $scriptInterno;
 
     public static function init() {
         if (empty(self::$scriptInterno)) {
             self::$scriptInterno = new EXT_Tag('SCRIPT');
-            self::$scriptInterno->setAtributo('type','text/javascript');
-            self::$scriptInterno->add("$(document).ready(function() { \n");
+            self::$scriptInterno->setAtributo('type', 'text/javascript');
+            if (self::$scriptInterno != null) {
+                self::$scriptInterno->add("$(document).ready(function() { \n");
+            }
         }
         return true;
     }
@@ -40,7 +42,9 @@ class EXT_Tag_Script{
     }
 
     public static function getScripts() {
-        self::$scriptInterno->add("\n});");
+        if (self::$scriptInterno != null) {
+            self::$scriptInterno->add("\n});");
+        }
         return self::$scriptInterno;
     }
 
