@@ -9,6 +9,8 @@ include_once 'exemplos/EXT_Template_Simples.php';
 $estilos=new EXT_Css_Regra('#', 'teste');
 $estilos->background_color='red';
 $estilos->color='white';
+$estilos->height='200px';
+$estilos->width='200px';
 
 EXT_Tag_Style::addRegra($estilos);
 
@@ -16,13 +18,11 @@ $camada=new EXT_Tag_Div();
 $camada->add('Camada exemplo');
 $camada->setId('teste');
         
-EXT_Tag_Script::addScript('alert("Olá mundo!")');
-
 $t=new EXT_Template_Simples();
 $t->add($camada);
 $t->show();
 
-
+//sada
 
 ?>
 
